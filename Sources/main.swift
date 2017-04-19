@@ -28,7 +28,7 @@ let request = HTTP.request(jsonURL) { response in
         fatalError("Invalid JSON Structure")
     }
     
-    let apis = ResposeParser.parse(json)
+    let apis = ResponseParser.parse(json)
     
     let router = Router()
     

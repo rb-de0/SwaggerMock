@@ -2,7 +2,7 @@ import Kitura
 import SwiftyJSON
 import Foundation
 
-final class ResposeParser {
+final class ResponseParser {
     
     class func parse(_ data: Any) -> [API] {
         
