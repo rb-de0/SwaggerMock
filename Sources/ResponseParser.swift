@@ -39,7 +39,7 @@ final class ResponseParser {
         let matches = regex.matches(in: path, options: [], range: range)
         
         for match in matches.sorted (by: { $0.0.range.location > $0.1.range.location }) {
-            let paramRange = NSRange.init(location: match.range.location + 1, length: match.range.length - 2)
+            let paramRange = NSRange(location: match.range.location + 1, length: match.range.length - 2)
             let paramName = replaced.substring(with: paramRange)
             replaced = replaced.replacingCharacters(in: match.range, with: ":\(paramName)") as NSString
         }
