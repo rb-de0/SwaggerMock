@@ -1,5 +1,6 @@
 import Kitura
 import KituraNet
+import SwiftyJSON
 import Foundation
 
 let arguments = ProcessInfo().arguments
@@ -23,12 +24,7 @@ let request = HTTP.request(jsonURL) { response in
         fatalError("Invalid Response Data")
     }
     
-    guard let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) else {
-        
-        fatalError("Invalid JSON Structure")
-    }
-    
-    let apis = ResponseParser.parse(json)
+    let apis = ResponseParser.parse(JSON(data: data))
     
     let router = Router()
     
